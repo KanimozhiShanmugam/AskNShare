@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+<h1> You've been signed out. To continue, just log in.</h1>
+    <h3><a href="{% url 'log' %}">LogIn</a></h3>
+    </div>
+<script>
+    // Check if the user is on the login page
+
+        history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            history.go(1);
+
+    }
+</script>
+</body>
+</html>

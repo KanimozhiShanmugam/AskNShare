@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  action="login_read" method="post">
+{% csrf_token %}
+    <h2 style="color:red" align="center">{{ data }}</h2>
+
+<h2 align="center">Welcome to AskNShare Login Page</h2>
+<table align="center">
+    <tr><td>USERNAME:</td>
+    <td><input type="text" name="utext"></td></tr>
+     <tr><td>PASSWORD:</td>
+    <td><input type="password" name="pwtext"></td></tr>
+    <tr><td><input type="submit" name="sub" value="SUBMIT"></td><td><a href="{% url 'reg' %}">Create an Account</a> </td></tr>
+</table>
+</form>
+</body>
+</html>

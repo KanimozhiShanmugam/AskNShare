@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <style>
+        /* Style the container to create the single line at the bottom */
+        .input-container {
+            position: relative;
+        }
+
+        /* Style the input field */
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #ccc; /* Add a bottom border to create the single line effect */
+            outline: none; /* Remove the default input focus outline */
+        }
+
+        /* Style the label */
+        .input-container label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            pointer-events: none; /* Prevent label from interfering with input */
+            transition: all 0.3s ease;
+        }
+
+        /* Move the label up when the input is focused */
+        .input-container input:focus + label {
+            font-size: 12px;
+            bottom: 20px;
+        }
+    </style>
+<form action="{% url 'ar' id %}"  method="post">
+    {% csrf_token %}
+    <div class="container">
+<div class="input-container pt-5">
+    <h4 style="font-weight:bold;color:blue;" >{{ ques.question }}</h4>
+        <input type="text" id="myInput" name="annstext" placeholder="Drop your answer here..." >
+        <label for="myInput"></label>
+
+  </div> <input type="submit" value="Submit Answer" class="mt-3"></div>
+{% endblock %}

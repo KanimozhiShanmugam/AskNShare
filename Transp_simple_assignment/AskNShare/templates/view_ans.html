@@ -1,0 +1,23 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<h2 align="center" style="font-weight:bold;color:blue">View Answers</h2>
+<div class="container">
+    {% if data|length == 0 %}
+    <h3 align="center" class="p-5 fw-light">No answers yet</h3>
+    {% endif %}
+{% for row in data %}
+
+
+    <div class="container p-1">
+    <div class="card" style="width: auto;">
+  <div class="card-body">
+    <h5 class="card-text" style="font-weight:bold;">{{ row.user_name }}</h5>
+    <p class="card-text"> {{ row.answer }}<br></p>
+
+    <a href="{% url 'like_read' row.id %}" style="text-decoration:none"><i class="fa-sharp fa-regular fa-thumbs-up"></i><span id="like-count">{{ row.like }}</span></a>
+
+  </div>
+</div></div>
+{% endfor %}
+{% endblock %}
+    </div>
